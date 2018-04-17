@@ -1,0 +1,43 @@
+forces
+{
+    type                forces;
+    functionObjectLibs  ("libforces.so");
+    writeControl        timeStep;
+    timeInterval        1;
+     
+    patches             ( "airfoil.*" );
+    pName               p;
+    UName               U;
+    rho                 rhoInf;
+    log                 true;
+     
+    CofR                (0 0 0);
+     
+    rhoInf              1026;
+}
+ 
+
+forceCoeffs
+{
+    type                forceCoeffs;
+    functionObjectLibs  ( "libforces.so" );
+    writeControl        timeStep;
+    timeInterval        1;
+ 
+    patches             ( "airfoil.*" );
+    pName               p;
+    UName               U;
+    rho                 rhoInf;
+    log                 true;
+     
+    liftDir             (0 0 1);
+    dragDir             (1 0 0);
+    CofR                (0 0 0);
+    pitchAxis           (0 1 0);
+     
+    magUInf             11.25;
+    rhoInf              1026;
+    lRef                0.51;
+    Aref                0.051;
+}
+
